@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="In-class activity materials for CS 565 at Oregon State University">
+	<meta name="author" content="Minsuk Kahng and WRITE_DOWN_YOUR_NAME">
+	
+	<title>CS 565 Activity</title>
+
+	<script src="https://unpkg.com/vue@3"></script>
+
+	<style type="text/css">
+		#timeline {
+			width: 600px;
+		}
+		.tweet {
+			border: 2px solid rgb(220, 220, 220);
+		}
+		.tweet-footer-info {
+			display: flex;
+			justify-content: space-between;
+		}
+		.clickable {
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div id="playground">
+			<div>
+				{{ test_message }}
+			</div>
+
+			<div>
+				{{ test_count }}
+				<button>Increment</button>
+			</div>
+		</div>
+
+		<div id="timeline">
+			<ul>
+				<li>
+					<div class="tweet">
+						<div class="tweet-header-info">
+							<span class="user-name">Oregon State University</span>
+							<span>@OregonState</span>
+						</div>
+						<div class="tweet-text">
+							On a beautiful sunny day, grab your bike and cruise through campus. Wave at friends as you pass by, take in the scenery and breathe in the Pacific Northwest air. Here you’ll find so many pathways to explore - even on two wheels.
+						</div>
+						<div class="tweet-footer-info">
+							<div class="replies">
+								Replies 0
+							</div>
+							<div class="retweet">
+								Retweet 3
+							</div>
+							<div class="like">
+								Like 72
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="tweet">
+						<div class="tweet-header-info">
+							<span class="user-name">Sundar Pichai</span>
+							<span>@sundarpichai</span>
+						</div>
+						<div class="tweet-text">
+							So excited that #GoogleIO is back. See you in 30 mins.
+						</div>
+						<div class="tweet-footer-info">
+							<div class="replies">
+								Replies 165
+							</div>
+							<div class="retweet">
+								Retweet 995
+							</div>
+							<div class="like">
+								Like 8300
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<script type="text/javascript">	
+		const { createApp } = Vue;
+
+		const app = createApp({
+			data() {
+				return {
+					tweets: [],
+					test_message: "hello world!",
+					test_count: 0
+				}
+			},
+			
+			methods: {
+
+
+				doSomething: function() {
+                    
+				}
+
+			},
+
+			// The following code is for loading the JSON data file.
+			beforeMount() {
+				fetch("cs565_activity_tweet_data.json")
+					.then(response => response.json())
+					.then(jsonData => {
+						this.tweets = jsonData.tweets;
+						console.log("The list of tweets has been loaded:", this.tweets);
+
+					});
+			}
+		});
+
+		app.mount("#app");		
+	</script>
+</body>
+</html>
