@@ -1,0 +1,23 @@
+{
+	"tweets": [
+		{
+			"id": 502,
+			"username": "Oregon State University",
+			"text": "On a beautiful sunny day, grab your bike and cruise through campus. Wave at friends as you pass by, take in the scenery and breathe in the Pacific Northwest air. Here you’ll find so many pathways to explore - even on two wheels.",
+			"replies": 0,
+			"retweets": 3,
+			"likes": 72,
+			"picture": "https://image.shutterstock.com/image-photo/hamburg-germany-september-2017-google-260nw-1056933398.jpg"
+		},
+		{
+			"id": 501,
+			"username": "Sundar Pichai",
+			"text": "So excited that #GoogleIO is back. See you in 30 mins.",
+			"replies": 165,
+			"retweets": 995,
+			"likes": 8300
+		}
+	]
+}
+
+
